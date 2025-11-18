@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secured Digital Visionix Handbook</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use Inter font for a professional look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6f9; /* Light background */
+        }
+        /* Smooth scrolling for navigation links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Style for the navigation buttons */
+        .nav-btn {
+            /* Tailwind classes for buttons: small padding, text, rounded, hover effect, no wrapping */
+            @apply px-4 py-2 text-sm font-semibold rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-200 transition duration-150 ease-in-out flex-shrink-0;
+        }
+        /* Custom scrollbar for horizontal navigation on supported browsers */
+        .overflow-x-auto::-webkit-scrollbar {
+            height: 6px;
+        }
+        .overflow-x-auto::-webkit-scrollbar-thumb {
+            background-color: #9ca3af; /* Gray-400 */
+            border-radius: 3px;
+        }
+        .overflow-x-auto::-webkit-scrollbar-track {
+            background: #f3f4f6; /* Gray-100 */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Main Container -->
+    <div class="w-full max-w-xl bg-white shadow-2xl rounded-xl overflow-hidden">
+
+        <!-- LOCK SCREEN (Initially Visible) -->
+        <div id="lock-screen" class="p-8 md:p-10 text-center transition-opacity duration-500">
+            <svg class="w-16 h-16 mx-auto mb-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v3h8z"></path>
+            </svg>
+            <h1 class="text-3xl font-bold text-gray-800 mb-3">Handbook Locked</h1>
+            <p class="text-gray-500 mb-8">Please enter the 4-digit PIN to access the official Visionix handbook.</p>
+
+            <div class="space-y-4">
+                <!-- PIN Input -->
+                <input
+                    type="password"
+                    id="pin-input"
+                    maxlength="4"
+                    placeholder="Enter a PIN..."
+                    class="w-full px-4 py-3 border-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-lg text-center text-xl tracking-wider font-mono shadow-inner transition duration-200"
+                    onkeypress="if(event.key === 'Enter') unlockHandbook()"
+                >
+
+                <!-- Feedback Message -->
+                <p id="feedback-message" class="h-6 text-sm font-medium transition duration-300"></p>
+
+                <!-- Unlock Button -->
+                <button
+                    onclick="unlockHandbook()"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg shadow-md transition duration-300 transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 active:bg-indigo-800"
+                >
+                    Unlock Handbook
+                </button>
+            </div>
+        </div>
+
+        <!-- HANDBOOK CONTENT (Initially Hidden) -->
+        <div id="handbook-content" class="p-8 md:p-10 hidden">
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <h1 class="text-3xl font-extrabold text-indigo-700">Visionix Admin Handbook</h1>
+                <span class="text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">UNLOCKED</span>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="sticky top-0 z-10 bg-white border border-indigo-200 rounded-xl shadow-lg p-4 mb-6">
+                <h3 class="text-lg font-bold text-indigo-800 mb-3">Quick Navigation</h3>
+                <!-- Horizontal Scrollable Links -->
+                <div class="flex overflow-x-auto whitespace-nowrap space-x-3 pb-2">
+                    <a href="#introduction" class="nav-btn">Introduction</a>
+                    <a href="#general-rules" class="nav-btn">General Rules</a>
+                    <a href="#channels" class="nav-btn">Channels</a>
+                    <a href="#promotions" class="nav-btn">Promotions</a>
+                    <a href="#punishment-handbook" class="nav-btn">Punishments</a>
+                    <a href="#moderation-commands" class="nav-btn">Commands</a>
+                    <a href="#final-conclusion" class="nav-btn">Conclusion</a>
+                </div>
+            </nav>
+            
+            <!-- Visionix Handbook Content Starts Here -->
+            
+            <h2 id="introduction" class="text-xl font-semibold text-gray-800 mb-4 mt-2">Introduction</h2>
+            <p class="text-gray-600 mb-6 border-l-4 border-indigo-400 pl-4 py-1 bg-indigo-50/50 rounded-r-lg">
+                Greetings! Welcome to Visionix’s Handbook. This MR+ handbook has all of the crucial information for our staff members. Please use this as a reference at any time throughout your journey here at Visionix.
+            </p>
+
+            <!-- General Rules -->
+            <h2 id="general-rules" class="text-xl font-semibold text-gray-800 mb-3 pt-4 border-t mt-6">General Rules</h2>
+            <p class="text-gray-600 mb-4">
+                As one of ROBLOX’s ophthalmologists, our MR+ represents Visionix. We have very high expectations for every one of our MR+ that are employed here. While we expect you to follow all regulations that are posted throughout our information channels and other guides, we have some basic rules that you also must follow which can be found below.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                    <h3 class="font-bold text-lg mb-1 text-red-700">Be Professional</h3>
+                    <p class="text-sm text-gray-700">You should be professional at all times while in any of our experiences. This includes being mature, respectful, and organized.</p>
+                </div>
+                <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                    <h3 class="font-bold text-lg mb-1 text-red-700">Be Respectful</h3>
+                    <p class="text-sm text-gray-700">At no time should any of our MR+s be disrespectful to anyone. You are setting an example for many other members of our group. Being disrespectful will not be tolerated. This includes our Discord server; failure to do so will result in consequences.</p>
+                </div>
+                <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                    <h3 class="font-bold text-lg mb-1 text-red-700">Do Not Leak Private Information</h3>
+                    <p class="text-sm text-gray-700">Leaking is a major offense, and will result in a ban. Leaking includes giving documents to people who are not an MR+, sharing any messages from a member of Staff Management to anyone outside of Staff Management, etc.</p>
+                </div>
+                <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                    <h3 class="font-bold text-lg mb-1 text-red-700">Follow All Rules Given</h3>
+                    <p class="text-sm text-gray-700">This means that you follow all rules that are listed above this, as well as any rules that are shared in an announcement, or given by a High-rank+.</p>
+                </div>
+            </div>
+
+            <!-- Channels -->
+            <h2 id="channels" class="text-xl font-semibold text-gray-800 mb-3 pt-4 border-t mt-6">Channels</h2>
+            <p class="text-gray-600 mb-4">
+                As an MR+, you will be able to access more channels. These channels are **confidential**, meaning that they are only to be discussed with fellow members of management. Absolutely none of our MR+ channels should be leaked, including the names & content within.
+            </p>
+            <p class="text-gray-500 italic mb-6">
+                Depending on your rank, you may have access to additional channels not included here.
+            </p>
+
+            <!-- Promotions -->
+            <h2 id="promotions" class="text-xl font-semibold text-gray-800 mb-3 pt-4 border-t mt-6">Promotions</h2>
+            <p class="text-gray-600 mb-4">
+                Promotions are a very common way we reward individuals who exceed and perform exceptionally. If you are interested in advancing within our rank structure, you must continuously display a high level of effort and dedication which will make you stand out and get noticed.
+            </p>
+
+            <ul class="list-disc list-inside space-y-3 text-gray-700 bg-green-50 p-6 rounded-lg border border-green-200">
+                <li class="pl-2">Display a consistent level of activity within the game.</li>
+                <li class="pl-2">Excel within your weekly assignments.</li>
+                <li class="pl-2">Host or attend **trainings & sessions**.</li>
+                <li class="pl-2">Engage and be **active in the community chat**.</li>
+                <li class="pl-2">Have a clean moderation and punishment history.</li>
+            </ul>
+            <p class="text-gray-600 mt-4 text-sm font-medium">
+                <span class="font-bold text-red-600">Please remember</span> that hinting or asking for a promotion will only reduce your chances.
+            <p>Signed,</p>
+                <p class="font-bold text-lg text-gray-700">loloyein123</p>
+            </p>
+
+            <!-- --- NEW PUNISHMENT HANDBOOK SECTION START --- -->
+            <hr class="my-8 border-t-2 border-indigo-200">
+            <h1 id="punishment-handbook" class="text-3xl font-extrabold text-indigo-800 mb-4">Punishment Handbook</h1>
+
+            <h2 class="text-xl font-bold text-gray-700 mb-4">Standard Protocol</h2>
+            <p class="text-lg font-semibold text-red-600 bg-red-100 p-3 rounded-lg text-center mb-8 shadow-sm">
+                Our protocol is to: <span class="font-extrabold">Remind (once) &gt; Warn (once) &gt; Kick &gt; Warn (once) &gt; Ban</span>
+            </p>
+
+            <!-- Punishments: MRs 9-11+ -->
+            <div class="mb-8 p-6 bg-yellow-50 rounded-xl border border-yellow-200">
+                <h3 class="text-2xl font-bold text-yellow-700 mb-4">Punishments: MRs (Rank 9-11+)</h3>
+                <div class="space-y-3 text-gray-700">
+                    <p class="font-medium">1. Trolling: <span class="text-red-600">Remind &gt; Warn &gt; Kick</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">E.g: "i wanna order mcdonalds"</p>
+                    
+                    <p class="font-medium pt-3">2. Inappropriate/Disrespectful Chat: <span class="text-red-600">Warn &gt; Kick</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">E.g: "i hate you fatsoo"</p>
+
+                    <p class="font-medium pt-3">3. Inappropriate Avatar: <span class="text-red-600">Remind &gt; Kick</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">E.g: Big avatars that can distract and eye seeing.</p>
+                </div>
+            </div>
+
+            <!-- Punishments: HRs 12-14+ -->
+            <div class="mb-8 p-6 bg-blue-50 rounded-xl border border-blue-200">
+                <h3 class="text-2xl font-bold text-blue-700 mb-4">Punishments: HRs (Rank 12-14+)</h3>
+                <div class="space-y-3 text-gray-700">
+                    <p class="font-medium">1. Flooding Chat: <span class="text-red-600">Kick &gt; Ban</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">E.g: Spamming/flooding the same word in the chat.</p>
+
+                    <p class="font-medium pt-3">2. Dating/Suicidal Topic: <span class="text-red-600">Kick &gt; Ban</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">E.g: "i love you beybe" / "di3 for me"</p>
+
+                    <p class="font-medium pt-3">3. ALTs (Alternative Accounts/Clones): <span class="text-red-600">Ban &gt; Request Pban</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">Note: Make sure to get proof before banning/pban!</p>
+                    
+                    <p class="font-medium pt-3">4. Glitching through walls: <span class="text-red-600">Respawn > Remind > Ban / Req Pban</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">E.g: Like using an emote to glitch through walls are not allowed.</p>
+                    
+                    <p class="font-medium pt-3">5. Inappropriate Emote: <span class="text-red-600">Remind > Ban</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">Note: If you think it's inappropriate, make sure to capture evidence before banning!</p>
+                    
+                    <p class="font-medium pt-3">6. Exploiting: <span class="text-red-600">Ban / Req Pban</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">E.g: Flying around using hacks/exploits.</p>
+                </div>
+                <div class="mt-6 p-3 bg-blue-100 border border-blue-300 rounded-lg text-sm text-blue-800">
+                    <p class="font-bold">Reminder for HRs+:</p>
+                    <p>Please keep in mind that you will have the ability to **ban**. Make sure to have **evidence** before banning someone. Failure to do so may result in termination.</p>
+                </div>
+            </div>
+
+            <!-- Punishments: Corp Team 15+ -->
+            <div class="mb-8 p-6 bg-indigo-50 rounded-xl border border-indigo-200">
+                <h3 class="text-2xl font-bold text-indigo-700 mb-4">Punishments: Corporate Team (Rank 15+)</h3>
+                <div class="space-y-3 text-gray-700">
+                    <p class="font-medium">1. Hating the Game: <span class="text-red-600">Pban</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">E.g: Hating the game is not allowed, results in permanent ban. Must capture evidence first before banning it.</p>
+                    
+                    <p class="font-medium pt-3">2. Personal Info Leak: <span class="text-red-600">Pban</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">E.g: Someone leaking their own personal info like address, etc. It’s not allowed!</p>
+
+                    <p class="font-medium pt-3">3. Leaking Info/Handbook: <span class="text-red-600">Terminated &gt; Pban</span></p>
+                    <p class="text-sm italic pl-4 border-l-2 border-gray-300">E.g: Leaking our information/handbook is not allowed and can be terminated and appealed. It depends on the situation.</p>
+
+                    <p class="font-medium pt-3">4. Unprofessional Staff: <span class="text-red-600">Remind > Warn > Demoted</span></p>
+                </div>
+                <div class="mt-6 p-3 bg-indigo-100 border border-indigo-300 rounded-lg text-sm text-indigo-800">
+                    <p class="font-bold">Reminder for Corp Team:</p>
+                    <p>Please keep in mind that you will have the ability to **pban**. Make sure to have **evidence** before p-banning someone. Failure to do so may result in termination.</p>
+                </div>
+            </div>
+
+            <!-- Commands Section -->
+            <h1 id="moderation-commands" class="text-3xl font-extrabold text-indigo-800 mb-4 mt-10">Moderation Commands</h1>
+            <p class="text-gray-600 mb-4">
+                Unlike the MR+, management can use moderation commands at Visionix. These commands should be used appropriately. **Admin abuse is not tolerated** and will result in severe punishment. Always include a reason when using a command!
+            </p>
+
+            <div class="overflow-x-auto rounded-lg shadow-lg border border-gray-200">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-1/5">Command</th>
+                            <th class="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-2/5">Description</th>
+                            <th class="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-2/5">Permission / Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200 text-sm">
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:bans</td>
+                            <td class="px-4 py-3">Shows a list of server bans.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:pm</td>
+                            <td class="px-4 py-3">Sends a personal message.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:to</td>
+                            <td class="px-4 py-3">Teleport to a player.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:info</td>
+                            <td class="px-4 py-3">Get information about a player.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:joinlogs</td>
+                            <td class="px-4 py-3">Log of all joins.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:ban</td>
+                            <td class="px-4 py-3">Bans player from server.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED **only if** the player followed the full `kick > warn > ban` protocol.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:respawn / :res</td>
+                            <td class="px-4 py-3">Respawns player.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED (must include a reason).</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:kick</td>
+                            <td class="px-4 py-3">Kicks player from server.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED **only if** the player followed the `remind > warn` protocol.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:unban</td>
+                            <td class="px-4 py-3">Unbans player from server.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED **only if** the user appeals or Corp Team approves.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:cmds</td>
+                            <td class="px-4 py-3">Shows command list.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:admins / :ingameadmins</td>
+                            <td class="px-4 py-3">Shows admins in-game.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:chatlogs</td>
+                            <td class="px-4 py-3">Logs of all chats.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:view / :unview</td>
+                            <td class="px-4 py-3">Views/unviews player.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:refresh / :res</td>
+                            <td class="px-4 py-3">Refreshes player.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium">ALLOWED (give valid reason).</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:ff / :unff</td>
+                            <td class="px-4 py-3">Adds a forcefield to player.</td>
+                            <td class="px-4 py-3 text-green-600 font-medium ">ALLOWED **IF AFK**</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:speed / :ws</td>
+                            <td class="px-4 py-3">Increases/decreases speed.</td>
+                            <td class="px-4 py-3 text-red-600 font-medium">NOT ALLOWED</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:m</td>
+                            <td class="px-4 py-3">Announces a message.</td>
+                            <td class="px-4 py-3 text-indigo-600 font-medium">ONLY FOR CORPS</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:team</td>
+                            <td class="px-4 py-3">Changes a player’s team.</td>
+                            <td class="px-4 py-3 text-red-600 font-medium">NOT ALLOWED</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-red-600 font-medium">:shutdown</td>
+                            <td class="px-4 py-3">Shutdown the server.</td>
+                            <td class="px-4 py-3 text-red-600 font-medium">NOT ALLOWED (only allowed if hosting a training and only the host/overseer can do it).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Command Conclusion -->
+            <p class="text-lg font-bold text-gray-700 bg-gray-100 p-4 rounded-lg mt-8 shadow-sm text-center">
+                Conclusion: use commands with high responsibility
+            </p>
+            <div class="text-right italic text-gray-500 mt-4">
+                <p>Credits to: Presidents & Owner/Co Owner</p>
+            </div>
+            <!-- --- NEW PUNISHMENT HANDBOOK SECTION END --- -->
+
+            <!-- Conclusion (original final conclusion) -->
+            <h2 id="final-conclusion" class="text-xl font-semibold text-gray-800 mb-3 pt-4 border-t mt-6">Conclusion</h2>
+            <p class="text-gray-600 mb-6">
+                Thank you for reading through the handbook! All of the information in this handbook should be kept up to date. If something is not, please contact a member of Staff Management.
+            </p>
+
+            <div class="text-right italic text-gray-500">
+            </div>
+            
+            <button
+                onclick="window.location.reload()"
+                class="mt-8 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-lg transition duration-200"
+            >
+                Lock Handbook (Reload)
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        const CORRECT_PIN = '0001';
+        const pinInput = document.getElementById('pin-input');
+        const feedbackMessage = document.getElementById('feedback-message');
+        const lockScreen = document.getElementById('lock-screen');
+        const handbookContent = document.getElementById('handbook-content');
+
+        /**
+         * Attempts to unlock the handbook by checking the entered PIN.
+         */
+        function unlockHandbook() {
+            const enteredPin = pinInput.value.trim();
+
+            if (enteredPin === CORRECT_PIN) {
+                // Successful unlock
+                feedbackMessage.textContent = 'Access Granted!';
+                feedbackMessage.classList.remove('text-red-500');
+                feedbackMessage.classList.add('text-green-600');
+                
+                // Hide the lock screen with a slight delay for the message to show
+                setTimeout(() => {
+                    lockScreen.classList.add('opacity-0', 'pointer-events-none');
+                    lockScreen.classList.add('hidden'); // Fully hide after transition
+                    handbookContent.classList.remove('hidden');
+                    handbookContent.classList.add('opacity-100');
+                }, 500);
+
+            } else {
+                // Incorrect PIN
+                feedbackMessage.textContent = 'Incorrect PIN. Try again.';
+                feedbackMessage.classList.remove('text-green-600');
+                feedbackMessage.classList.add('text-red-500');
+
+                // Clear input and shake effect
+                pinInput.value = '';
+                pinInput.classList.add('animate-shake');
+                setTimeout(() => {
+                    pinInput.classList.remove('animate-shake');
+                    feedbackMessage.textContent = ''; // Clear message after brief display
+                }, 1000);
+            }
+        }
+
+        // Add a simple CSS animation for the shake effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0% { transform: translateX(0); }
+                20% { transform: translateX(-5px); }
+                40% { transform: translateX(5px); }
+                60% { transform: translateX(-5px); }
+                80% { transform: translateX(5px); }
+                100% { transform: translateX(0); }
+            }
+            .animate-shake {
+                animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both;
+            }
+        `;
+        document.head.appendChild(style);
+
+    </script>
+</body>
+</html>
